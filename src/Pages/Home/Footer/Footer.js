@@ -10,11 +10,6 @@ const Footer = () => {
                     <h1 >Laptop Gallery</h1>
                 </div>
                 <div className='footerItem'>
-                    {/* <h5>New York 846 Sycamore Circle</h5>
-                    <div >
-                        <h5>Call Now</h5>
-                        <p>02154258</p>
-                    </div> */}
                     <Row xs={1} md={2} lg={2}  >
                         <Col>
                             <h4>Address</h4>

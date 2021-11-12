@@ -3,10 +3,10 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import login from '../../../image/login.jpg';
 import useAuth from '../../Hooks/Firebasce/useAuth';
-import './Login.css'
+import './Register.css'
 
-const Login = () => {
-    const { loginUser } = useAuth();
+const Register = () => {
+    const { userRegister } = useAuth();
     const [loginINfo, setLoginIngo] = useState({});
 
 
@@ -19,9 +19,18 @@ const Login = () => {
 
     }
     const handelLoginForm = e => {
-        alert('are you sure')
-        console.log(loginINfo)
-        loginUser(loginINfo.email, loginINfo.password)
+        if (loginINfo.password !== loginINfo.password2) {
+            alert('your did not match')
+            return
+        }
+        if (loginINfo.password.length <= 7) {
+            alert('Password must be more than eight characters')
+            return
+        }
+
+        userRegister(loginINfo.email, loginINfo.password)
+        alert('successfully register')
+
 
         e.preventDefault()
     }
@@ -35,7 +44,7 @@ const Login = () => {
                     <Col xs={12} sm={5} md={4}>
                         <Form onSubmit={handelLoginForm} className='loginForm'>
                             <div>
-                                <h4>Login</h4>
+                                <h4>Register</h4>
                                 <div>
                                     <input
                                         type="text"
@@ -49,12 +58,18 @@ const Login = () => {
                                         onBlur={handelOnblurPassword}
                                         placeholder='Your password'
                                     />
+                                    <input
+                                        name='password2'
+                                        type="password"
+                                        onBlur={handelOnblurPassword}
+                                        placeholder='again password'
+                                    />
                                 </div>
                                 <input className='btn btn-primary mt-2' type="submit" value="Login" />
                             </div>
                         </Form><br />
-                        <Link to='/register'>
-                            <Button style={{ textDecoration: 'none' }} variant="link">are you a new user? please register.</Button>
+                        <Link to='/login'>
+                            <Button style={{ textDecoration: 'none' }} variant="link">Already you are register?</Button>
                         </Link>
 
 
@@ -65,4 +80,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

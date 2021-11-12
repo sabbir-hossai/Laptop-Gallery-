@@ -10,6 +10,9 @@ import Home from './Pages/Home/Home/Home';
 import { Navbar } from 'react-bootstrap';
 import AuthProvider from './Pages/AuthProvider/AuthProvider';
 import AllProducts from './Pages/AllProducts/AllProducts/AllProducts';
+import Purchase from './Pages/Purchase/Purchase';
+import Login from './Pages/Login/login/Login';
+import Register from './Pages/Login/Register/Register';
 
 function App() {
   return (
@@ -21,8 +24,17 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
             <Route path="/allproducts">
               <AllProducts />
+            </Route>
+            <Route path="/Purchase/:laptopId">
+              <Purchase />
             </Route>
             <Route exact path="/">
               <Home />

@@ -11,11 +11,9 @@ const PopularLptop = (props) => {
                     <Card.Img variant="top" src={img} />
                     <Card.Body>
                         <Card.Title> {name}</Card.Title>
-
                         <Card.Text>Price: {price} </Card.Text>
                         <Card.Text> {description.slice(0, 200)} </Card.Text>
-                        <Link to={`/booking/${_id}`}><button className="btn btn-primary">Book here</button></Link>
-
+                        <Link to={`/purchase/${_id}`}><button className="btn btn-primary">Purchase here</button></Link>
                     </Card.Body>
                 </Card>
             </Col>
