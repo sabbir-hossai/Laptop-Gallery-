@@ -10,7 +10,7 @@ const axios = require('axios').default;
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/popularlaptops')
+        fetch('https://guarded-journey-56459.herokuapp.com/popularlaptops')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
@@ -19,7 +19,7 @@ const ManageProducts = () => {
     const onSubmit = data => {
 
         console.log(data)
-        axios.post('http://localhost:5000/productAdd', data)
+        axios.post('https://guarded-journey-56459.herokuapp.com/productAdd', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');

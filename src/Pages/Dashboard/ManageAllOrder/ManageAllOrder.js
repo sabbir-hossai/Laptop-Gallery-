@@ -9,7 +9,7 @@ const ManageAllOrder = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/allOrders`;
+        const url = `https://guarded-journey-56459.herokuapp.com/allOrders`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -19,7 +19,7 @@ const ManageAllOrder = () => {
 
     const handeldelete = id => {
         console.log(id)
-        const url = `http://localhost:5000/confirmOrders/${id}`;
+        const url = `https://guarded-journey-56459.herokuapp.com/confirmOrders/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

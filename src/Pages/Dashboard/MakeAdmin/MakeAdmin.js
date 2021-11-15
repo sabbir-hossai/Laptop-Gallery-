@@ -16,7 +16,7 @@ const MakeAdmin = () => {
     const handelAdmin = e => {
         const user = { email };
         console.log(user)
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://guarded-journey-56459.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 "content-type": 'application/json'

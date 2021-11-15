@@ -68,7 +68,7 @@ const useFirebase = () => {
     }, [auth]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/admin/${user.email}`)
+        fetch(`https://guarded-journey-56459.herokuapp.com/users/admin/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)
@@ -87,7 +87,7 @@ const useFirebase = () => {
     }
     const saveUser = (email, displayName,) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://guarded-journey-56459.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

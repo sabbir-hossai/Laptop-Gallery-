@@ -13,7 +13,7 @@ const Dashboard = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/confirmOrders?email=${user?.email}`;
+        const url = `https://guarded-journey-56459.herokuapp.com/confirmOrders?email=${user?.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
     const handeldelete = id => {
         console.log(id)
-        const url = `http://localhost:5000/confirmOrders/${id}`;
+        const url = `https://guarded-journey-56459.herokuapp.com/confirmOrders/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

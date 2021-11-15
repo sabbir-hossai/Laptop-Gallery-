@@ -18,7 +18,7 @@ const Purchase = (props) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/popularlaptops/${laptopId}`)
+        fetch(`https://guarded-journey-56459.herokuapp.com/popularlaptops/${laptopId}`)
             .then(res => res.json())
             .then(data => setPurchaseLaptop(data))
     }, [])
@@ -28,7 +28,7 @@ const Purchase = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/confirmOrders', data)
+        axios.post('https://guarded-journey-56459.herokuapp.com/confirmOrders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');

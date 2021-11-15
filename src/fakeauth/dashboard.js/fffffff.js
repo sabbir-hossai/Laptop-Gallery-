@@ -67,7 +67,7 @@ export default Dashboard;
 
 
 
-fetch('http://localhost:5000/users/admin', {
+fetch('https://guarded-journey-56459.herokuapp.com/users/admin', {
     method: "PUT",
     headers: {
         "content-type": 'application/json'

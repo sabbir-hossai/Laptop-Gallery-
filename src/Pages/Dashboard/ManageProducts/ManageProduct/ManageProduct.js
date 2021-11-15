@@ -7,7 +7,7 @@ const ManageProduct = (props) => {
 
     const handeldelete = id => {
         console.log(id)
-        const url = `http://localhost:5000/popularlaptops/${id}`;
+        const url = `https://guarded-journey-56459.herokuapp.com/popularlaptops/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

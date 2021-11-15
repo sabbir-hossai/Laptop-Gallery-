@@ -6,7 +6,7 @@ import PopularLptop from '../PopularLaptop/PopularLptop';
 const PopularLaptops = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/popularlaptops')
+        fetch('https://guarded-journey-56459.herokuapp.com/popularlaptops')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
