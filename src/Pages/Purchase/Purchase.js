@@ -3,7 +3,10 @@ import { Card, CardGroup } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../Hooks/Firebasce/useAuth';
+import Navigation from '../Shared/Navigation/Navigation';
+import './Purchase.css';
 const axios = require('axios').default;
+
 
 const Purchase = (props) => {
 
@@ -25,67 +28,77 @@ const Purchase = (props) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('https://scary-treat-11337.herokuapp.com/confirms', data)
+        axios.post('http://localhost:5000/confirmOrders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
                     reset();
                 }
             })
-
     };
-
-
-
     return (
-        <div>
-            <p>this is purchase laptopId:{laptopId}</p>
+        <div className=' '>
+            <Navigation></Navigation>
+            <div className='  mt-3'>
+                <h1 className="text-primary">Package details</h1>
 
-            <CardGroup>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>Card title</Card.Title>
-                        <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <div className="booking-container">
-                        <div>
-                            <h1 className="text-primary">Tourist info</h1>
-                            <h4> Name: {user.displayName}      Email: {user.email}</h4>
+            </div>
+            <div className='container mt-2'>
+                <CardGroup>
+                    <Card>
+                        <Card.Img style={{ width: '70%' }} variant="top" src={purchaseLaptop?.img} />
+
+                        <Card.Footer>
+                            <small className="text-muted">Last updated 3 mins ago</small>
+                        </Card.Footer>
+                    </Card>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>
+                                {purchaseLaptop?.name}</Card.Title>
+
+                            <Card.Text>
+                                <h5>Price: {purchaseLaptop?.price}</h5>
+                            </Card.Text>
+                            <Card.Text className='marginLeft'>
+                                <span className='font-weight-bold'>Brand:</span> {purchaseLaptop?.brand}
+                            </Card.Text>
+                            <Card.Text className='marginLeft'>
+                                <span className='font-weight-bold'>Description:</span> {purchaseLaptop?.description}.
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+
+                </CardGroup>
+            </div>
+
+
+            <div className="booking-container">
+
+                <div className="mt-1 mb-2">
+                    <h1 className="text-primary">packages info</h1>
+
+                </div>
+                <div className="container ">
+                    <div className="package-container">
+
+                        <div className='add-confirm'>
+                            <form className="loginContainer" onSubmit={handleSubmit(onSubmit)}>
+                                <input type='text'{...register("name")} defaultValue={user?.displayName} />
+                                <input type='text'{...register("laptopTitle")} defaultValue={purchaseLaptop?.name} />
+                                <input type='url' {...register("img")} defaultValue={purchaseLaptop?.img} />
+                                <input type='text' {...register("brand")} defaultValue={purchaseLaptop?.brand} />
+                                <textarea type='text'{...register("description")} defaultValue={purchaseLaptop?.description} />
+                                <input type="price" {...register("price")} defaultValue={purchaseLaptop?.price} />
+                                <input type="email" {...register("email")} defaultValue={user?.email} />
+
+                                <input className='btn-primary' type="submit" />
+                            </form>
                         </div>
-                        <div className="mt-5 mb-5">
-                            <h1 className="text-primary">packages info</h1>
-
-                        </div>
-                        <div className="container ">
-                            <div className="package-container">
-
-                                <div className='add-confirm'>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <input type='text'{...register("name")} />
-                                        <textarea type='text'{...register("description")} defaultValue />
-                                        <input type='text' {...register("img")} />
-                                        <input type='text' {...register("package_states")} />
-                                        <input type="number" {...register("price")} />
-
-                                        <input type="submit" />
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                </Card>
+                </div>
 
-            </CardGroup>
+            </div>
         </div>
     );
 };

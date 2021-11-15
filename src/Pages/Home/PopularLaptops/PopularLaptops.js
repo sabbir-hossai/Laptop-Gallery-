@@ -16,7 +16,9 @@ const PopularLaptops = () => {
             <h2 className="text-primary mt-5 mb-5">Most Popular Packages</h2>
             <Row xs={1} md={2} lg={3} className="g-4">
                 {
-                    products.map(product => <PopularLptop product={product}></PopularLptop>)
+                    products.map(product => <PopularLptop
+                        key={product._id}
+                        product={product}></PopularLptop>)
                 }
             </Row>
         </div>

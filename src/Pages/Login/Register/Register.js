@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import login from '../../../image/login.jpg';
 import useAuth from '../../Hooks/Firebasce/useAuth';
 import './Register.css'
 
 const Register = () => {
-    const { userRegister } = useAuth();
+    const { userRegister, isLoading, user, authError } = useAuth();
     const [loginINfo, setLoginIngo] = useState({});
 
+
+    const location = useLocation();
+    const history = useHistory()
 
     const handelOnblurPassword = e => {
         const field = e.target.name;
@@ -28,7 +31,7 @@ const Register = () => {
             return
         }
 
-        userRegister(loginINfo.email, loginINfo.password)
+        userRegister(loginINfo.email, loginINfo.password, loginINfo.name, history)
         alert('successfully register')
 
 
@@ -42,10 +45,16 @@ const Register = () => {
                         <img className='img-fluid' src={login} alt="" />
                     </Col>
                     <Col xs={12} sm={5} md={4}>
-                        <Form onSubmit={handelLoginForm} className='loginForm'>
+                        {!isLoading ? <Form onSubmit={handelLoginForm} className='loginForm'>
                             <div>
                                 <h4>Register</h4>
                                 <div>
+                                    <input
+                                        type="text"
+                                        name='name'
+                                        onBlur={handelOnblurPassword}
+                                        placeholder='Your name'
+                                    />
                                     <input
                                         type="text"
                                         name='email'
@@ -65,11 +74,22 @@ const Register = () => {
                                         placeholder='again password'
                                     />
                                 </div>
-                                <input className='btn btn-primary mt-2' type="submit" value="Login" />
+                                <input className='btn btn-primary mt-2' type="submit" value="Register" />
                             </div>
-                        </Form><br />
+                        </Form> : <Spinner animation="border" />}
+                        {user?.email && ['success'].map((variant, idx) => (
+                            <Alert key={idx} variant={variant}>
+                                User created successfully
+                            </Alert>
+                        ))}
+                        {authError && ['danger'].map((variant, idx) => (
+                            <Alert key={idx} variant={variant}>
+                                {authError}
+                            </Alert>
+                        ))}
+                        <br />
                         <Link to='/login'>
-                            <Button style={{ textDecoration: 'none' }} variant="link">Already you are register?</Button>
+                            <Button style={{ textDecoration: 'none' }} variant="link">Already you are register?Please Login </Button>
                         </Link>
 
 

@@ -1,0 +1,17 @@
+.loginContainer  {
+      
+ } 
+ .loginContainer input,textarea{
+     width: 80%;
+     margin: 5px;
+     border: 1px solid rgb(106, 92, 92);
+     border-radius: 5px;
+ } 
+ .marginLeft{
+     text-align: left;
+ }
+ .marginLeft span{
+     
+ }
+ 
+ 

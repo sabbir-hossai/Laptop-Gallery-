@@ -17,7 +17,10 @@ const AllProducts = () => {
                 <h2 className="text-primary mt-5 mb-5">All Products</h2>
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {
-                        products.map(product => <AllProduct product={product}></AllProduct>)
+                        products.map(product => <AllProduct
+                            key={product._id}
+                            product={product}
+                        ></AllProduct>)
                     }
                 </Row>
             </div>
