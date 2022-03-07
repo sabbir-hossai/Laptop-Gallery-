@@ -1,33 +1,36 @@
 
 .laptopImg{
-    height: 250px !important;
-    border: 1px solid lightgray;
-    border-radius: 8px;
+height: 250px !important;
+border: 1px solid lightgray;
+border-radius: 8px;
 }
 .PackageText{
-    text-align: justify; 
-    
+text-align: justify; 
+
 }
 .card-shadow{
-    position: relative;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: white;
-    /* position: absolute; */
+position: relative;
+border: 1px solid lightgray;
+border-radius: 10px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+background-color: white;
+/* position: absolute; */
+}  
+
+.center {
+position: absolute; 
+width: 50%;
+top: 40%;  
+left: 25%;  
+font-size: 18px;
+display: none;
 }
-/* .container {
-    
-  } */
-  
-  .center {
-    position: absolute;
-    /* margin: -70px; */
-    width: 50%;
-    top: 40%;  
-    left: 25%;
-    /* text-align: center;
-    text-align: justify;  */
-    font-size: 18px;
-  }
-  
+
+.opacity:hover {
+    opacity: 0.3;
+}
+
+.card-shadow:hover .center {
+display: block; 
+opacity: 1;
+}

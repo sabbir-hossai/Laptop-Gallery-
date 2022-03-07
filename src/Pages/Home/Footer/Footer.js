@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footer'>
             <div className='container'>
                 <div className='mb-3'>
-                    <h1 >Laptop Gallery</h1>
+                    <h1 >Laptop <span className='text-warning'>Gallery</span></h1>
                 </div>
                 <div className='footerItem'>
                     <Row xs={1} md={2} lg={2}  >

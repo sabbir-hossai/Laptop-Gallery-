@@ -22,7 +22,7 @@ const UserReview = () => {
     return (
         <div  >
             <h1 className='bg-secondary p-2'>Dashboard</h1>
-            <h1>Review now</h1>
+            <h1>Review <span className='text-warning'>Now</span></h1>
             <Row className='container'>
                 <Col className='link' xs={6} md={4}>
                     <DashboardItem></DashboardItem>
@@ -32,6 +32,7 @@ const UserReview = () => {
                         <input type='text'{...register("name")} placeholder='Your name' />
                         <input type='text'{...register("laptopTitle")} defaultValue={user?.email} />
                         <textarea type='text'{...register("description")} placeholder='Type your review' />
+                        <input type='number' min='1' max='5'{...register("star")} placeholder='Type your star 1 to 5' />
                         <input className='btn-primary' type="submit" />
                     </form>
                 </Col>

@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Table, } from 'react-bootstrap';
+import Footer from '../../Home/Footer/Footer';
 import useAuth from '../../Hooks/Firebasce/useAuth';
 import DashboardItem from '../DashboardItem/DashboardItem';
 import MyOrder from '../MyOrder/MyOrder';
@@ -39,18 +40,26 @@ const Dashboard = () => {
 
     return (
         <div >
-            <h1 className='bg-secondary p-2'>Dashboard</h1>
-            <Row className='container'>
-                <Col className='link' xs={6} md={4}>
-                    <DashboardItem></DashboardItem>
-                </Col>
-                <Col xs={12} md={8}>
+            <div className='dashBoardBar '>
+                <h1 className='  p-2'>Dashboard</h1>
+            </div>
 
-                    <MyOrder></MyOrder>
+            <div>
+                <Row className='container'>
+                    <Col className='link' xs={6} md={4}>
+                        <DashboardItem></DashboardItem>
+                    </Col>
+                    <Col xs={12} md={8}>
+
+                        <MyOrder></MyOrder>
 
 
-                </Col>
-            </Row>
+                    </Col>
+                </Row>
+            </div>
+            <div>
+                <Footer></Footer>
+            </div>
         </div >
     )
 };

@@ -8,17 +8,20 @@ const PopularLptop = (props) => {
         <div className="container">
             <Col>
                 <div className='card-shadow'>
-                    <img src="" alt="" />
-                    <Card.Img className='laptopImg' variant="top" src={img} />
-                    <Card.Body >
-                        <Card.Title> {name}</Card.Title>
-                        <Card.Text>Price: {price} </Card.Text>
-                        {/* <Card.Text className='PackageText'> {description.slice(0, 150)} </Card.Text> */}
-                        {/* <Link to={`/purchase/${_id}`}><button className="btn btn-primary">Purchase here</button></Link> */}
-                    </Card.Body>
-                    <Link to={`/purchase/${_id}`}><button className="btn btn-primary center">Purchase here</button></Link>
+                    <div className='opacity  '>
+                        <img src="" alt="" />
+                        <Card.Img className='laptopImg' variant="top" src={img} />
+                        <Card.Body >
+                            <Card.Title> {name}</Card.Title>
+                            <Card.Text>Price: {price} </Card.Text>
+                            {/* <Card.Text className='PackageText'> {description.slice(0, 150)} </Card.Text> */}
+                            {/* <Link to={`/purchase/${_id}`}><button className="btn btn-primary">Purchase here</button></Link> */}
+                        </Card.Body>
+                        <Link to={`/purchase/${_id}`}><button className="btn btn-primary center  ">Purchase here</button></Link>
+                    </div>
                 </div>
             </Col>
+
         </div>
     );
 };

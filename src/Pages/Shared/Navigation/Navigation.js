@@ -10,9 +10,9 @@ const Navigation = () => {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" expand="md" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="md" expand="lg" bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Laptop Gallery</Navbar.Brand>
+                    <Navbar.Brand href="#home"> <span className='text-warning'>Laptop Gallery</span> </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

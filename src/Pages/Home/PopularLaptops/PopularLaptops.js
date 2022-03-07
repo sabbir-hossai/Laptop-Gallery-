@@ -15,7 +15,7 @@ const PopularLaptops = () => {
 
         <div className='  laptopContainer'>
             <div className='container  '>
-                <h2 className="text-primary mt-5 mb-5">Most Popular Packages</h2>
+                <h2 className="text-primary mt-5 mb-5">Most Popular <span className='text-warning'>Packages</span>  </h2>
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {
                         products.slice(0, 6).map(product => <PopularLptop
