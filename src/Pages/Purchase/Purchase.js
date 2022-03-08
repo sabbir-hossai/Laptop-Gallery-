@@ -10,7 +10,7 @@ const axios = require('axios').default;
 
 const Purchase = (props) => {
 
-    const { user, } = useAuth();
+    const { users, } = useAuth();
     const { laptopId } = useParams();
     console.log(laptopId)
 
@@ -40,7 +40,7 @@ const Purchase = (props) => {
         <div className=' '>
             <Navigation></Navigation>
             <div className='  mt-3'>
-                <h1 className="text-primary">Package details</h1>
+                <h1 className="text-primary">Package <span className='text-warning'>details</span> </h1>
 
             </div>
             <div className='container mt-2'>
@@ -76,7 +76,7 @@ const Purchase = (props) => {
             <div className="booking-container">
 
                 <div className="mt-1 mb-2">
-                    <h1 className="text-primary">packages info</h1>
+                    <h1 className="text-primary">packages <span className='text-warning'>info</span></h1>
 
                 </div>
                 <div className="container ">
@@ -84,13 +84,13 @@ const Purchase = (props) => {
 
                         <div className='add-confirm'>
                             <form className="loginContainer" onSubmit={handleSubmit(onSubmit)}>
-                                <input type='text'{...register("name")} defaultValue={user?.displayName} />
+                                <input type='text'{...register("name")} defaultValue={users?.displayName} />
                                 <input type='text'{...register("laptopTitle")} defaultValue={purchaseLaptop?.name} />
                                 <input type='url' {...register("img")} defaultValue={purchaseLaptop?.img} />
                                 <input type='text' {...register("brand")} defaultValue={purchaseLaptop?.brand} />
                                 <textarea type='text'{...register("description")} defaultValue={purchaseLaptop?.description} />
                                 <input type="price" {...register("price")} defaultValue={purchaseLaptop?.price} />
-                                <input type="email" {...register("email")} defaultValue={user?.email} />
+                                <input type="email" {...register("email")} defaultValue={users?.email} />
 
                                 <input className='btn-primary' type="submit" />
                             </form>

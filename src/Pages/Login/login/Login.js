@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useNavigate, } from 'react-router-dom';
 import login from '../../../image/login.jpg';
 import useAuth from '../../Hooks/Firebasce/useAuth';
 import './Login.css'
@@ -10,7 +10,7 @@ const Login = () => {
     const { userLogin, user, authError, isLoading } = useAuth();
     const [loginINfo, setLoginIngo] = useState({});
     const location = useLocation();
-    const history = useHistory()
+    const navigate = useNavigate()
 
 
     const handelOnblurPassword = e => {
@@ -27,7 +27,7 @@ const Login = () => {
             alert('Password must be more than eight characters')
             return
         }
-        userLogin(loginINfo.email, loginINfo.password, location, history)
+        userLogin(loginINfo.email, loginINfo.password, location, navigate)
         console.log(loginINfo)
         e.preventDefault()
     }

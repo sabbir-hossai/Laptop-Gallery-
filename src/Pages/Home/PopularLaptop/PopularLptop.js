@@ -11,14 +11,15 @@ const PopularLptop = (props) => {
                     <div className='opacity  '>
                         <img src="" alt="" />
                         <Card.Img className='laptopImg' variant="top" src={img} />
-                        <Card.Body >
+                        <Card.Body className='cardBody' >
                             <Card.Title> {name}</Card.Title>
                             <Card.Text>Price: {price} </Card.Text>
-                            {/* <Card.Text className='PackageText'> {description.slice(0, 150)} </Card.Text> */}
-                            {/* <Link to={`/purchase/${_id}`}><button className="btn btn-primary">Purchase here</button></Link> */}
+                            <Card.Text className='PackageText'> {description.slice(0, 150)} </Card.Text>
+                            <Link to={`/purchase/${_id}`}><button className="btn btn-primary">Purchase here</button></Link>
                         </Card.Body>
-                        <Link to={`/purchase/${_id}`}><button className="btn btn-primary center  ">Purchase here</button></Link>
+                        {/* <Link to={`/purchase/${_id}`}><button className="btn btn-primary center  ">Purchase here</button></Link> */}
                     </div>
+
                 </div>
             </Col>
 

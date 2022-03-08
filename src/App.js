@@ -1,11 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-
-} from "react-router-dom";
+import { Route, BrowserRouter, Routes, } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import { Navbar } from 'react-bootstrap';
 import AuthProvider from './Pages/AuthProvider/AuthProvider';
@@ -13,61 +8,48 @@ import AllProducts from './Pages/AllProducts/AllProducts/AllProducts';
 import Purchase from './Pages/Purchase/Purchase';
 import Login from './Pages/Login/login/Login';
 import Register from './Pages/Login/Register/Register';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+// import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
-import Pay from './Pages/Dashboard/Pay/Pay';
-import UserReview from './Pages/Dashboard/UserReviesw/UserReview';
 
+import MyOrder from './Pages/Dashboard/MyOrder/MyOrder';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
-import ManageProducts from './Pages/Dashboard/ManageProducts/ManageProducts';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Pay from './Pages/Dashboard/Pay/Pay';
 import ManageAllOrder from './Pages/Dashboard/ManageAllOrder/ManageAllOrder';
+import UserReview from './Pages/Dashboard/UserReviesw/UserReview';
 
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <Router>
+        {/* <Router>
           <Navbar></Navbar>
-          <Switch>
-            <Route path="/home">
-              <Home />
+        </Router > */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            {/* <Route path="/pay" element={<Pay></Pay>} /> */}
+            <Route path="/register" element={<Register />} />
+            <Route path="/allproducts" element={<AllProducts />} />
+            <Route path="/Purchase/:laptopId" element={<Purchase />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/userreview" element={<UserReview />} /> */}
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
+              <Route path="/dashboard" element={<MyOrder></MyOrder>} />
+              <Route path="/dashboard/MakeAdmin" element={<PrivateRoute><MakeAdmin></MakeAdmin></PrivateRoute>} />
+
+              {/* <Route path="/dashboard/manageAllOrder" element={<ManageAllOrder></ManageAllOrder>} /> */}
+              <Route path="/dashboard/manageProduct" element={<PrivateRoute><manageProduct></manageProduct></PrivateRoute>} />
+              <Route path="/dashboard/pay" element={<PrivateRoute><Pay></Pay></PrivateRoute>} />
+              <Route path="/dashboard/MyOrder" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>} />
+              <Route path="/dashboard/userreview" element={<PrivateRoute><UserReview></UserReview></PrivateRoute>} />
+              {/* <Route path=":id" element={<ProductDisplay />} />  */}
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/allproducts">
-              <AllProducts />
-            </Route>
-            <PrivateRoute path="/Purchase/:laptopId">
-              <Purchase />
-            </PrivateRoute>
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
-            </PrivateRoute>
-            <PrivateRoute path="/userreview">
-              <UserReview></UserReview>
-            </PrivateRoute>
-            <PrivateRoute path="/pay">
-              <Pay></Pay>
-            </PrivateRoute>
-            <PrivateRoute path="/manageAllOrder">
-              <ManageAllOrder></ManageAllOrder>
-            </PrivateRoute>
-            <PrivateRoute path="/makeAdmin">
-              <MakeAdmin></MakeAdmin>
-            </PrivateRoute>
-            <PrivateRoute path="/manageProduct">
-              <ManageProducts></ManageProducts>
-            </PrivateRoute>
-            <Route exact path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router >
+          </Routes>
+        </BrowserRouter>
       </AuthProvider>
 
     </div >

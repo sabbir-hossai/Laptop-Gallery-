@@ -39,7 +39,9 @@ const MyOrder = () => {
 
     return (
         <div>
+            <h2>My <span className='text-warning'>orders</span> </h2>
             <Table striped bordered hover>
+
                 <thead>
                     <tr>
 

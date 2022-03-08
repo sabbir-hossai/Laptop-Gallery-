@@ -1,15 +1,12 @@
-
 import React, { useEffect, useState } from 'react';
-import { Col, Container, Row, Table, } from 'react-bootstrap';
+import { Link, Outlet } from 'react-router-dom';
 import Footer from '../../Home/Footer/Footer';
 import useAuth from '../../Hooks/Firebasce/useAuth';
-import DashboardItem from '../DashboardItem/DashboardItem';
-import MyOrder from '../MyOrder/MyOrder';
 import './Dashboard.css'
 
 
 const Dashboard = () => {
-    const { user } = useAuth();
+    const { user, logout, admin } = useAuth()
     const [orders, setOrders] = useState([]);
 
 
@@ -21,6 +18,7 @@ const Dashboard = () => {
     }, [])
 
     const handeldelete = id => {
+
         console.log(id)
         const url = `https://guarded-journey-56459.herokuapp.com/confirmOrders/${id}`;
         fetch(url, {
@@ -39,29 +37,36 @@ const Dashboard = () => {
 
 
     return (
-        <div >
-            <div className='dashBoardBar '>
-                <h1 className='  p-2'>Dashboard</h1>
+        <div>
+            <h1 className=' dashboardTitle p-3 bg-warning'>Dashboard</h1>
+            <div className='container'>
+                <div className="row  ">
+
+                    <div className=" col-lg-3 DashItem ">
+                        <Link className='icons' to="/home"><span><i class="fa-solid fa-house icon"></i></span><h5 className=' DashboardItem'>Home</h5> </Link>
+                        {admin &&
+                            <div>
+                                <Link className='icons' to="/dashboard/makeAdmin"><span><i class="fa-solid fa-user-tie icon" ></i></span><h5>Make Admin</h5> </Link>
+                                <Link className='icons' to='/Dashboard/manageAllOrder'><i class="fa-solid fa-cart-shopping icon"></i><h5>Manage All Orders</h5></Link>
+                                <Link className='icons' to='/Dashboard/manageProduct'><span><i class="fa-solid fa-shop-slash icon"></i></span><h5>Manage Product</h5></Link>
+                            </div>
+                        }
+                        <Link className='icons' to="/Dashboard/pay"><i class="fa-solid fa-dollar-sign icon "></i><h5>Pay</h5></Link>
+                        <Link className='icons' to="/Dashboard"><span><i class="fa-solid fa-cart-plus icon"></i></span><h5>My Order </h5> </Link>
+                        <Link className='icons' to="/Dashboard/userReview" ><span><i class="fa-solid fa-house icon"></i></span><h5> Reviews</h5></Link>
+                        <button className='btn btn-link icons' style={{ textDecoration: 'none', marginLeft: '-10px' }} onClick={logout}><span><i class="fa-solid fa-arrow-right-from-bracket icon"></i></span><h5>Logout</h5></button>
+                    </div>
+                    <div className=" col-9 outletColor">
+                        <Outlet />
+                    </div>
+                </div>
+
+
             </div>
+            <Footer></Footer>
+        </div>
 
-            <div>
-                <Row className='container'>
-                    <Col className='link' xs={6} md={4}>
-                        <DashboardItem></DashboardItem>
-                    </Col>
-                    <Col xs={12} md={8}>
-
-                        <MyOrder></MyOrder>
-
-
-                    </Col>
-                </Row>
-            </div>
-            <div>
-                <Footer></Footer>
-            </div>
-        </div >
-    )
+    );
 };
 
 export default Dashboard;

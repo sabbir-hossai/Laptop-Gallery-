@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row, Table } from 'react-bootstrap';
 import useAuth from '../../Hooks/Firebasce/useAuth';
-import DashboardItem from '../DashboardItem/DashboardItem';
 
 const ManageAllOrder = () => {
     const { user } = useAuth();
@@ -38,9 +37,6 @@ const ManageAllOrder = () => {
         <div>
             <h1 className='bg-secondary p-2'>Dashboard</h1>
             <Row className='container'>
-                <Col className='link' xs={6} md={4}>
-                    <DashboardItem></DashboardItem>
-                </Col>
                 <Col xs={12} md={8}>
 
                     <Table striped bordered hover>

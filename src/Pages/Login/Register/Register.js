@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
-import { Link, useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../image/login.jpg';
 import useAuth from '../../Hooks/Firebasce/useAuth';
 import './Register.css'
@@ -11,7 +11,7 @@ const Register = () => {
 
 
     const location = useLocation();
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handelOnblurPassword = e => {
         const field = e.target.name;
@@ -31,7 +31,7 @@ const Register = () => {
             return
         }
 
-        userRegister(loginINfo.email, loginINfo.password, loginINfo.name, history)
+        userRegister(loginINfo.email, loginINfo.password, loginINfo.name, navigate)
         alert('successfully register')
 
 

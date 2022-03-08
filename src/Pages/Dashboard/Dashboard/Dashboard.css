@@ -5,7 +5,28 @@
 .link a{
     text-decoration: none;
    
-}
-.dashBoardBar{
+} 
+.dashboardTitle{
     background-color: rgb(253,240,233);
+    text-align: center;
+}
+.DashItem  {
+    border-right: 3px solid  gray;
+    /* padding: 10px; */
+    text-align: left;
+    
+}
+.DashItem a{
+    text-decoration: none; 
+}
+.outletColor{
+    margin-top: -8px;
+    background-color: rgb(253,240,233);
+}
+.icons{
+    display:flex;
+    /* flex-direction:; */
+}
+.icon{
+    margin: 6px;
 }

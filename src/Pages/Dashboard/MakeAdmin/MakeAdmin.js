@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/Firebasce/useAuth';
-import DashboardItem from '../DashboardItem/DashboardItem';
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
     const { user } = useAuth();
@@ -36,12 +36,8 @@ const MakeAdmin = () => {
 
     return (
         <div  >
-            <h1 className='bg-secondary p-2'>Dashboard</h1>
-            <h1>Make an Admin</h1>
+            <h1 className='margin'>Make an <span className='text-warning'>Admin</span> </h1>
             <Row className='container'>
-                <Col className='link' xs={6} md={4}>
-                    <DashboardItem></DashboardItem>
-                </Col>
                 <Col xs={12} md={8}>
                     <form onClick={handelAdmin} action="">
                         <input onBlur={handelOnblure} type="text" name='email' placeholder='your email' />

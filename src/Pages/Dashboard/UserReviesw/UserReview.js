@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/Firebasce/useAuth';
-import DashboardItem from '../DashboardItem/DashboardItem';
+import './userReview.css';
 
 const UserReview = () => {
     const { user } = useAuth();
@@ -21,12 +21,8 @@ const UserReview = () => {
     };
     return (
         <div  >
-            <h1 className='bg-secondary p-2'>Dashboard</h1>
-            <h1>Review <span className='text-warning'>Now</span></h1>
+            <h1 className='margin'>Review <span className='text-warning'>Now</span></h1>
             <Row className='container'>
-                <Col className='link' xs={6} md={4}>
-                    <DashboardItem></DashboardItem>
-                </Col>
                 <Col xs={12} md={8}>
                     <form className="loginContainer" onSubmit={handleSubmit(onSubmit)}>
                         <input type='text'{...register("name")} placeholder='Your name' />

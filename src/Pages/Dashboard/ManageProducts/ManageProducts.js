@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import AllProduct from '../../AllProducts/AllProduct/AllProduct';
-import DashboardItem from '../DashboardItem/DashboardItem';
 import ManageProduct from './ManageProduct/ManageProduct';
 
 const axios = require('axios').default;
@@ -32,9 +31,6 @@ const ManageProducts = () => {
     return (
         <div>
             <Row className='container'>
-                <Col className='link' xs={6} md={4}>
-                    <DashboardItem></DashboardItem>
-                </Col>
                 <Col xs={12} md={8}>
                     <h2>Add a product</h2>
                     <div className="package-container">

@@ -2,7 +2,7 @@
 .laptopImg{
 height: 250px !important;
 border: 1px solid lightgray;
-border-radius: 8px;
+border-radius: 8px; 
 }
 .PackageText{
 text-align: justify; 
@@ -14,23 +14,20 @@ border: 1px solid lightgray;
 border-radius: 10px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 background-color: white;
+overflow: hidden;
 /* position: absolute; */
 }  
 
-.center {
-position: absolute; 
-width: 50%;
-top: 40%;  
-left: 25%;  
-font-size: 18px;
-display: none;
+.laptopImg:hover {
+transform: scale(1.1);
+transition: transform 2s ease-in-out;
+
+}
+.card-shadow:hover{ 
+transform: scale(1.05);
+transition: transform 1s ease-in-out;
 }
 
-.opacity:hover {
-    opacity: 0.3;
-}
 
-.card-shadow:hover .center {
-display: block; 
-opacity: 1;
-}
+
+ 
