@@ -1,6 +1,8 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/Firebasce/useAuth';
+// import './MyOrder.css';
 
 
 
@@ -39,7 +41,7 @@ const MyOrder = () => {
 
     return (
         <div>
-            <h2>My <span className='text-warning'>orders</span> </h2>
+            <h2 className='margin'>My <span className='text-warning'>orders</span> </h2>
             <Table striped bordered hover>
 
                 <thead>
@@ -60,7 +62,7 @@ const MyOrder = () => {
                                 }</td>
                                 <td> {order.brand}</td>
                                 <td>{order.price}</td>
-                                <td> <button onClick={() => handeldelete(order._id)} className='btn btn-dark'>X</button> </td>
+                                <td>{order.payment ? 'paid' : <Link to={`/Dashboard/pay/${order._id}`}><button className="btn btn-primary">Purchase here</button></Link>} </td>
                             </tr>
                         )
                     }

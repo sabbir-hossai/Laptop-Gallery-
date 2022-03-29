@@ -35,15 +35,17 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/allproducts" element={<AllProducts />} />
             <Route path="/Purchase/:laptopId" element={<Purchase />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            {/* <Route path="/userreview" element={<UserReview />} /> */}
+            {/* <Route path="/Dashboard/pay/:laptopId" element={<Purchase />} /> */}
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}>
               <Route path="/dashboard" element={<MyOrder></MyOrder>} />
               <Route path="/dashboard/MakeAdmin" element={<PrivateRoute><MakeAdmin></MakeAdmin></PrivateRoute>} />
 
-              {/* <Route path="/dashboard/manageAllOrder" element={<ManageAllOrder></ManageAllOrder>} /> */}
+              <Route path="/dashboard/manageAllOrder" element={<ManageAllOrder></ManageAllOrder>} />
               <Route path="/dashboard/manageProduct" element={<PrivateRoute><manageProduct></manageProduct></PrivateRoute>} />
-              <Route path="/dashboard/pay" element={<PrivateRoute><Pay></Pay></PrivateRoute>} />
+              {/* <Route path="/dashboard/pay" element={<PrivateRoute><Pay></Pay></PrivateRoute>} /> */}
+              <Route path={`/dashboard/pay/:paymentId`} element={<PrivateRoute><Pay></Pay></PrivateRoute>} />
+
               <Route path="/dashboard/MyOrder" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>} />
               <Route path="/dashboard/userreview" element={<PrivateRoute><UserReview></UserReview></PrivateRoute>} />
               {/* <Route path=":id" element={<ProductDisplay />} />  */}

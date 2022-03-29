@@ -35,43 +35,38 @@ const ManageAllOrder = () => {
 
     return (
         <div>
-            <h1 className='bg-secondary p-2'>Dashboard</h1>
-            <Row className='container'>
-                <Col xs={12} md={8}>
+            <h1 className='text-center '>Manage  <span className='text-warning'>all Order</span></h1>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
 
-                    <Table striped bordered hover>
-                        <thead>
+                        <th>Laptop Name</th>
+                        <th>Laptop brand</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        orders.map(order =>
                             <tr>
 
-                                <th>Laptop Name</th>
-                                <th>Laptop brand</th>
-                                <th>Price</th>
-                                <th>Action</th>
+                                <td> {order.laptopTitle
+                                }</td>
+                                <td> {order.brand}</td>
+                                <td>{order.price}</td>
+                                <td> <button onClick={() => handeldelete(order._id)} className='btn btn-dark'>X</button> </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                orders.map(order =>
-                                    <tr>
-
-                                        <td> {order.laptopTitle
-                                        }</td>
-                                        <td> {order.brand}</td>
-                                        <td>{order.price}</td>
-                                        <td> <button onClick={() => handeldelete(order._id)} className='btn btn-dark'>X</button> </td>
-                                    </tr>
-                                )
-                            }
+                        )
+                    }
 
 
-                        </tbody>
-                    </Table>
-
-
-                </Col>
-            </Row>
-
+                </tbody>
+            </Table>
         </div>
+
+
+
     );
 };
 

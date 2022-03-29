@@ -9,8 +9,7 @@ const PopularLptop = (props) => {
             <Col>
                 <div className='card-shadow'>
                     <div className='opacity  '>
-                        <img src="" alt="" />
-                        <Card.Img className='laptopImg' variant="top" src={img} />
+                        <Card.Img className='laptopImg p-4' variant="top" src={img} />
                         <Card.Body className='cardBody' >
                             <Card.Title> {name}</Card.Title>
                             <Card.Text>Price: {price} </Card.Text>

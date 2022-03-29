@@ -3,3 +3,8 @@
     margin-left: -230px;
 
 }
+@media screen and (max-width: 768px) {
+    .margin {
+        margin-left: 0px;
+    }
+  }

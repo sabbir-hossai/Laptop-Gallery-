@@ -8,7 +8,7 @@ const TopBanner = () => {
     return (
         <div className='topBannerBody'>
             <Container>
-                <Row className="my-5">
+                <Row className="mt--5">
                     <Col xs={12} sm={7} md={8}>
                         <img className='img-fluid' src={banner} alt="" />
                     </Col>

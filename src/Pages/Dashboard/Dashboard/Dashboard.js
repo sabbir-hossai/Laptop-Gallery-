@@ -38,16 +38,19 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1 className=' dashboardTitle p-3 bg-warning'>Dashboard</h1>
+            <div>
+                <h1 className=' dashboardTitle p-3 bg-warning'>  Dashboard</h1>
+            </div>
+
             <div className='container'>
                 <div className="row  ">
 
-                    <div className=" col-lg-3 DashItem ">
+                    <div className="col-sm-12 col-lg-3  DashItem ">
                         <Link className='icons' to="/home"><span><i class="fa-solid fa-house icon"></i></span><h5 className=' DashboardItem'>Home</h5> </Link>
                         {admin &&
                             <div>
                                 <Link className='icons' to="/dashboard/makeAdmin"><span><i class="fa-solid fa-user-tie icon" ></i></span><h5>Make Admin</h5> </Link>
-                                <Link className='icons' to='/Dashboard/manageAllOrder'><i class="fa-solid fa-cart-shopping icon"></i><h5>Manage All Orders</h5></Link>
+                                <Link className='icons' to='/dashboard/manageAllOrder'><i class="fa-solid fa-cart-shopping icon"></i><h5>Manage All Orders</h5></Link>
                                 <Link className='icons' to='/Dashboard/manageProduct'><span><i class="fa-solid fa-shop-slash icon"></i></span><h5>Manage Product</h5></Link>
                             </div>
                         }
@@ -56,7 +59,7 @@ const Dashboard = () => {
                         <Link className='icons' to="/Dashboard/userReview" ><span><i class="fa-solid fa-house icon"></i></span><h5> Reviews</h5></Link>
                         <button className='btn btn-link icons' style={{ textDecoration: 'none', marginLeft: '-10px' }} onClick={logout}><span><i class="fa-solid fa-arrow-right-from-bracket icon"></i></span><h5>Logout</h5></button>
                     </div>
-                    <div className=" col-9 outletColor">
+                    <div className=" col-lg-9  outletColor">
                         <Outlet />
                     </div>
                 </div>

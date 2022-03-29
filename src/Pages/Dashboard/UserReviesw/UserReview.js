@@ -22,10 +22,10 @@ const UserReview = () => {
     return (
         <div  >
             <h1 className='margin'>Review <span className='text-warning'>Now</span></h1>
-            <Row className='container'>
+            <Row className='container-fluid'>
                 <Col xs={12} md={8}>
                     <form className="loginContainer" onSubmit={handleSubmit(onSubmit)}>
-                        <input type='text'{...register("name")} placeholder='Your name' />
+                        <input type='text'{...register("name")} placeholder='Your name' defaultValue={user?.displayName} />
                         <input type='text'{...register("laptopTitle")} defaultValue={user?.email} />
                         <textarea type='text'{...register("description")} placeholder='Type your review' />
                         <input type='number' min='1' max='5'{...register("star")} placeholder='Type your star 1 to 5' />
